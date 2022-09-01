@@ -3,7 +3,7 @@ name: Build Docker Images
 on: [push]
 
 env:
-  DOCKERHUB_IMAGE_NAME: whitegecko/pyinstaller
+  DOCKERHUB_IMAGE_NAME: tkgmomosheep/pyinstaller
   GITHUB_IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -12,14 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         python: ["py3"]
-        architecture: ["amd64", "i386", "win32", "win64"]
-        include:
-          - python: "py2"
-            architecture: "amd64"
-            experimental: true
-          - python: "py2"
-            architecture: "win32"
-            experimental: true
+        architecture: ["win64"]
 
     runs-on: ubuntu-latest
     steps:
